@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timbre-tone: Play</title>
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+    <button onclick="history.back()">Go Back</button>
+    
+<div class="changeForm">
+    <header>
+        <h1 class="heading js-heading">Timbre-Tone</h1>
+        <section class="window-container js-container1">
+            <!-- <span class="score js-change save"></span> -->
+            <button class="start-button js-start">Start</button>
+            <span class="info js-info hidden"></span>
+        </section>
+
+    </header>
+        <!-- <div class="game"> -->
+            <section class="tile-container js-container unclickable">
+                <div class="tile tile-red" data-tile="red">A</div>
+                <div class="tile tile-blue" data-tile="blue">B</div>
+                <div class="tile tile-green" data-tile="green">C</div>
+                <div class="tile tile-purple" data-tile="purple">D</div>
+                <div class="tile tile-yellow" data-tile="yellow">E</div>
+                <div class="tile tile-orange" data-tile="orange">F</div>
+                <div class="tile tile-pink" data-tile="pink">G</div>
+            </section>
+        <!-- </div> -->
+
+        <div class="hidden">
+            <audio src="Audio/A_note.mp3" data-sound="red"></audio>
+            <audio src="Audio/B_note.mp3" data-sound="blue"></audio>
+            <audio src="Audio/C_note.mp3" data-sound="green"></audio>
+            <audio src="Audio/D_note.mp3" data-sound="purple"></audio>
+            <audio src="Audio/E_note.mp3" data-sound="yellow"></audio>
+            <audio src="Audio/F_note.mp3" data-sound="orange"></audio>
+            <audio src="Audio/G_note.mp3" data-sound="pink"></audio>
+        </div>
+        <script src="js/game.js"></script>
+        <script src="js/form.js"></script>
+    </div>
+
+    <main class="ended-game">
+        
+    </main>
+</body>
+</html>

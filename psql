@@ -1,0 +1,16 @@
+-- Marias-iMac:rohaans-foundation-capstone mariaanderson$ psql -U postgres
+-- Password for user postgres: 
+-- psql (15.1, server 12.13)
+-- Type "help" for help.
+
+-- postgres=# CREATE DATABASE login;
+-- CREATE DATABASE
+-- postgres=# \c login;
+-- psql (15.1, server 12.13)
+-- You are now connected to database "login" as user "postgres".
+-- login=# CREATE TABLE users (id serial not null primary key, name varchar(255)not null, email varchar(255) not null unique, password varchar(255) not null);
+-- CREATE TABLE
+-- login=# SELECT * FROM users;
+--  id | name | email | password 
+-- ----+------+-------+----------
+-- (0 rows)
