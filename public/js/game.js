@@ -54,7 +54,7 @@ function check() {
 
 function saveScore() {
   axios
-  .get('http://localhost:5030/game')
+  .get('http://localhost:5001/game')
   .then(res => {
     const user = res.data
 
@@ -64,7 +64,7 @@ function saveScore() {
     } = user
 
     username.value = username,
-    score.value = level
+    score = level
 
   })
 }
