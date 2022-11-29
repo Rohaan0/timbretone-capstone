@@ -22,7 +22,7 @@ const password = document.querySelector('.password');
 const submitBtn = document.querySelector('.submit-btn');
 
 if(name == null){ // means login page is open
-    submitBtn.addEventListener('click', () => {
+    submitBtn.addEventListener('click', async () => {
         fetch('/login-user',{
             method: 'post',
             headers: new Headers({'Content-Type': 'application/json'}),
@@ -43,7 +43,7 @@ if(name == null){ // means login page is open
             method: 'post',
             headers: new Headers({'Content-Type': 'application/json'}),
             body: JSON.stringify({
-                name: await name.value,
+                name: name.value,
                 email: email.value,
                 password: password.value
             })

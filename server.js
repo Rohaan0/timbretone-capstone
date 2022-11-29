@@ -81,16 +81,12 @@ app.post('/register-user', (req, res) => {
 app.post('/login-user', (req, res) => {
     const { email, password } = req.body;
 
-    sequ
-    db.select('name', 'email')
-    .from('users')
-    .where({
-        email: email,
-        password: password
-    })
+    sequelize.query(`
+    SELECT email, password FROM users WHERE email='${email}' AND password='${password}';`)
     .then(data => {
         if(data.length){
             res.json(data[0]);
+            console.log(res.data)
         } else{
             res.json('email or password is incorrect');
         }
