@@ -18,10 +18,6 @@ const sequelize = new Sequelize(CONNECTION_STRING, {
     },
   });
   
-  sequelize.authenticate().then(() => {
-    app.set("db", {
-      sequelize,
-    });
 
     const users = async () => {
         try {
@@ -66,12 +62,11 @@ app.post('/register-user', (req, res) => {
     if(!name.length || !email.length || !password.length){
         res.json('fill all the fields');
     } else{
-        db("users").insert({
-            name: name,
-            email: email,
-            password: password
-        })
-        .returning(["name", "email"])
+        sequelize.query(`
+        INSERT INTO users (name, email, password)
+        VALUES ('${name}', '${email}', '${password}')
+        RETURNING name, email;
+    `)
         .then(data => {
             res.json(data[0])
         })
@@ -86,6 +81,7 @@ app.post('/register-user', (req, res) => {
 app.post('/login-user', (req, res) => {
     const { email, password } = req.body;
 
+    sequ
     db.select('name', 'email')
     .from('users')
     .where({
@@ -104,5 +100,3 @@ app.post('/login-user', (req, res) => {
 app.listen(SERVER_PORT, () => {
     console.log(`Server up and running on ${SERVER_PORT}`);
   });
-
-});
